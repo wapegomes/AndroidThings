@@ -1,4 +1,4 @@
-package com.example.wgomes.androidthings.utils;
+package com.example.wgomes.androidthingshardware.utils;
 
 import android.os.Build;
 

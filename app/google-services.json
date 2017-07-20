@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "213437690928",
+    "firebase_url": "https://androidthings-example.firebaseio.com",
+    "project_id": "androidthings-example",
+    "storage_bucket": "androidthings-example.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213437690928:android:7cc96808c1b70b28",
+        "android_client_info": {
+          "package_name": "com.example.wgomes.androidthingsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213437690928-nbsb84g13b3v7v5tp1o6e2gc3kssuoj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3Bq3whsVL1FsBFvM4mswEx7b8103J7MQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213437690928:android:c51734da2f417f93",
+        "android_client_info": {
+          "package_name": "com.example.wgomes.androidthingshardware"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213437690928-nbsb84g13b3v7v5tp1o6e2gc3kssuoj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3Bq3whsVL1FsBFvM4mswEx7b8103J7MQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
