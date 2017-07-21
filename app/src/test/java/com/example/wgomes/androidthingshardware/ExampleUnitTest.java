@@ -1,4 +1,4 @@
-package com.example.wgomes.androidthings;
+package com.example.wgomes.androidthingshardware;
 
 import org.junit.Test;
 

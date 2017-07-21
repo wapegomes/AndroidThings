@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.wgomes.androidthings">
+    package="com.example.wgomes.androidthingshardware">
 
     <application>
-        <uses-library android:name="com.google.android.things" android:required="false"/>
+        <uses-library android:name="com.google.android.things"/>
 
-        <activity android:name=".activities.ButtonActivity">
+        <activity android:name="com.example.wgomes.androidthingshardware.activities.ButtonActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

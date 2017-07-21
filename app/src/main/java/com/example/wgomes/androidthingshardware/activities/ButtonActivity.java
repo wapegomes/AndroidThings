@@ -1,17 +1,24 @@
-package com.example.wgomes.androidthings.activities;
+package com.example.wgomes.androidthingshardware.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 
-import com.example.wgomes.androidthings.utils.BoardDefaults;
+import com.example.wgomes.androidthingshardware.model.RequestQueue;
+import com.example.wgomes.androidthingshardware.utils.BoardDefaults;
 import com.google.android.things.contrib.driver.button.Button;
 import com.google.android.things.contrib.driver.button.ButtonInputDriver;
 import com.google.android.things.pio.Gpio;
 import com.google.android.things.pio.PeripheralManagerService;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * Skeleton of an Android Things activity.
@@ -37,6 +44,8 @@ public class ButtonActivity extends Activity {
 
     private Gpio mLedGpio;
     private ButtonInputDriver mButtonInputDriver;
+    DatabaseReference databaseReference;
+    public String mChildRequestQueue = "request_queue";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +68,29 @@ public class ButtonActivity extends Activity {
             mButtonInputDriver.register();
         } catch (IOException e) {
             Log.e(TAG, "Error configuring GPIO pins", e);
+        }
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child(mChildRequestQueue).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                RequestQueue requestQueue = dataSnapshot.getValue(RequestQueue.class);
+                if (requestQueue != null) {
+                    setupLED(requestQueue);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void setupLED(RequestQueue requestQueue) {
+        if (requestQueue.dateRequestDone.isEmpty()) {
+            requestQueue.dateRequestDone = new Date().toString();
+            setLedValue(requestQueue.requestToOn);
+            databaseReference.child(mChildRequestQueue).setValue(requestQueue);
         }
     }
 

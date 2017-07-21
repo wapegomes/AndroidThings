@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.example.wgomes.androidthings"
+        applicationId "com.example.wgomes.androidthingshardware"
         minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
@@ -25,7 +25,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compileOnly 'com.google.android.things:androidthings:+'
-    compile 'com.google.android.things.contrib:driver-button:0.1'
+    compile 'com.google.android.things.contrib:driver-button:0.3'
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.firebase:firebase-database:11.0.2'
 }
+
+apply plugin: 'com.google.gms.google-services'
