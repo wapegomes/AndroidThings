@@ -45,6 +45,7 @@ public class ButtonActivity extends Activity {
     private Gpio mLedGpio;
     private ButtonInputDriver mButtonInputDriver;
     DatabaseReference databaseReference;
+    public String mChildRequestQueue = "request_queue";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +70,13 @@ public class ButtonActivity extends Activity {
             Log.e(TAG, "Error configuring GPIO pins", e);
         }
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.child(mChildRequestQueue).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 RequestQueue requestQueue = dataSnapshot.getValue(RequestQueue.class);
-                setupLED(requestQueue);
+                if (requestQueue != null) {
+                    setupLED(requestQueue);
+                }
             }
 
             @Override
@@ -84,10 +87,10 @@ public class ButtonActivity extends Activity {
     }
 
     private void setupLED(RequestQueue requestQueue) {
-        if (requestQueue.dateRequestDone.isEmpty()){
+        if (requestQueue.dateRequestDone.isEmpty()) {
             requestQueue.dateRequestDone = new Date().toString();
             setLedValue(requestQueue.requestToOn);
-            databaseReference.child("request_queue").setValue(requestQueue);
+            databaseReference.child(mChildRequestQueue).setValue(requestQueue);
         }
     }
 

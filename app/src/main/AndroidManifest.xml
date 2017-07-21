@@ -3,7 +3,7 @@
     package="com.example.wgomes.androidthingshardware">
 
     <application>
-        <uses-library android:name="com.google.android.things" android:required="false"/>
+        <uses-library android:name="com.google.android.things"/>
 
         <activity android:name="com.example.wgomes.androidthingshardware.activities.ButtonActivity">
             <intent-filter>
