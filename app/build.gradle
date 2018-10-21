@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.example.wgomes.androidthingshardware"
         minSdkVersion 24
@@ -28,7 +28,7 @@ dependencies {
     compile 'com.google.android.things.contrib:driver-button:0.3'
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.google.firebase:firebase-database:11.0.2'
+    implementation 'com.google.firebase:firebase-database:16.0.3'
 }
 
 apply plugin: 'com.google.gms.google-services'
