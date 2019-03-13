@@ -10,7 +10,7 @@ import com.example.wgomes.androidthingshardware.utils.BoardDefaults;
 import com.google.android.things.contrib.driver.button.Button;
 import com.google.android.things.contrib.driver.button.ButtonInputDriver;
 import com.google.android.things.pio.Gpio;
-import com.google.android.things.pio.PeripheralManagerService;
+import com.google.android.things.pio.PeripheralManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,7 +52,8 @@ public class ButtonActivity extends Activity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Starting ButtonActivity");
 
-        PeripheralManagerService pioService = new PeripheralManagerService();
+        PeripheralManager pioService = PeripheralManager.getInstance();
+
         try {
             Log.i(TAG, "Configuring GPIO pins");
             mLedGpio = pioService.openGpio(BoardDefaults.getGPIOForLED());
